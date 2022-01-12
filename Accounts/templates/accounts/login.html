@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Inicia Sesión{% endblock %}
+
+{% block content %}
+
+
+<div class="row mt-5">
+    <div class="col-6 mt-5 text-center ml-auto mr-auto">
+        <div class="card p-5 ml-auto mr-auto">
+            <div class="card-itle">
+                Login
+            </div>
+            <div class="card-body">
+                <form class="form ml-auto mr-auto" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="btn btn-primary"type="submit" name="submit" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

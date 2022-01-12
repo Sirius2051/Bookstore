@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Confirmar Eliminacion{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row"></div>
+    <br />
+    <div class="row">
+        <div class="col-md-2 col-xs-2 col-sm-2"></div>
+        <div class="col-md-10 col-xs-10 col-sm-10">
+        {% if user.is_authenticated %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="alert alert-warning">
+                        Estas seguro que deseas eliminar {{ object }}?
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-danger">
+                    <span class="">Si</span>
+                </button>
+            </form>
+            
+        {% else %}
+            <a href="{% url 'signup' %}">Registrate</a>
+            <a href="{% url 'login' %}">Iniciar sesión</a>
+        {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
